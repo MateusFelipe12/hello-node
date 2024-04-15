@@ -1,13 +1,13 @@
 import { Router } from "express";
+import { CidadesController } from "../controllers";
+
 
 const router = Router();
 
-router.get('/teste', (_, res) => {
-  res.send('Ola DEV!')
-})
+router.get('/', (_, res) => {
+  res.send('Ola DEV!');
+});
 
-router.post('/teste', (req, res) => {
-  res.status(200).json(req.headers)
-})
+router.post('/cidades', CidadesController.createValidation, CidadesController.create);
 
 export { router };
